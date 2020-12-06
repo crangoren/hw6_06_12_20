@@ -1,17 +1,24 @@
 package hw6.animals;
 
-public class Animal {
+public abstract class Animal {
+    static int animalCount;
     protected String name;
     protected String colour;
     protected  int age;
-    int runDistance;
-    int swimDistance;
 
-    protected void run() {
-        System.out.println(name + "пробежал" + runDistance + "метров");
+    public abstract void swim(int swimDistance);
+    public abstract void run(int runDistance);
+
+    public Animal(String name, String colour, int age) {
+        this.name = name;
+        this.colour = colour;
+        this.age = age;
+        animalCount++;
     }
-    protected void swim() {
-        System.out.println(name + "проплыл" + swimDistance + "метров");
+
+    public static void animals() {
+        System.out.println("Всего животных: " + animalCount);
     }
+
 
 }
